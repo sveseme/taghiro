@@ -1,0 +1,30 @@
+{
+  "name": "taghiro",
+  "version": "0.1.0",
+  "description": "Tag types for Typescript",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephanSchmidt/taghiro.git"
+  },
+  "keywords": [
+    "tag",
+    "types"
+  ],
+  "author": "Stephan J. Schmidt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StephanSchmidt/taghiro/issues"
+  },
+  "homepage": "https://github.com/StephanSchmidt/taghiro#readme"
+}
