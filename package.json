@@ -17,6 +17,7 @@
     "typescript": "^3.3.3333"
   },
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "repository": {
