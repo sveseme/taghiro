@@ -3,6 +3,11 @@
 https://github.com/arhs/iban.js
 BIC?
 
+## Others
+
+- Write about sanitizers (toEmail = trim + lowercase etc.)
+- Write about force asEmail(string):string & Email | undefined {..}
+
 ## Ideas
 
 AccountNumber
@@ -28,9 +33,8 @@ InvoiceNumber
 ImageId
 CouponCode
 
-URL
-RelativeURL
-AbsoluteURL
+string & RelativeURL
+string & AbsoluteURL
 
 Date & InvoiceDate
 Date & SEPAPaymentDate
