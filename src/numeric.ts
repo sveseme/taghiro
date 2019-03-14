@@ -73,3 +73,44 @@ type NonNegative = Tag<'non-negative'>;
 export function nonNegative<T extends number>(value: number): value is number & LessEqual<T> {
   return !positive(value);
 }
+
+export declare class Modulo<T extends number, U extends number> {
+  private __m1: T;
+  private __m2: U;
+}
+
+export function isModulo<T extends number, U extends number>(
+  value: number,
+  m1: T,
+  m2: U,
+): value is number & Modulo<T, U> {
+  return value % m1 == m2;
+}
+
+export declare class Divisible<T extends number> {
+  private __divisor: T;
+}
+
+export function isDivisible<T extends number>(value: number, d: T): value is number & Divisible<T> {
+  return isModulo(value, d, 0);
+}
+
+export declare class NotDivisible<T extends number> {
+  private __divisor: T;
+}
+
+export function isNotDivisible<T extends number>(value: number, d: T): value is number & NotDivisible<T> {
+  return !isDivisible(value, d);
+}
+
+type Odd = Tag<'odd'>;
+
+export function isOdd(value: number): value is number & Odd {
+  return isNotDivisible(value, 2);
+}
+
+type Even = Tag<'even'>;
+
+export function isEven(value: number): value is number & Odd {
+  return isDivisible(value, 2);
+}
