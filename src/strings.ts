@@ -82,7 +82,7 @@ export function startsWith<T extends string>(value: string, startsWith: T): valu
 
 export type Url = Tag<'url'>;
 
-export function isUrl<T extends number>(value: string): value is string & LowerCase {
+export function isUrl(value: string): value is string & LowerCase {
   try {
     new URL(value);
     return true;
@@ -93,14 +93,14 @@ export function isUrl<T extends number>(value: string): value is string & LowerC
 
 export type Uuid = Tag<'uuid'>;
 
-export function isUuid<T extends number>(value: string): value is string & Uuid {
+export function isUuid(value: string): value is string & Uuid {
   const regexp = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', 'i');
   return regexp.test(value);
 }
 
 export type Json = Tag<'json'>;
 
-export function isJson<T extends number>(value: string): value is string & Uuid {
+export function isJson(value: string): value is string & Json {
   try {
     const result = JSON.parse(value);
     return !!result && typeof result === 'object';
