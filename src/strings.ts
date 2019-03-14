@@ -9,6 +9,7 @@ import { Tag } from './tag';
 // EndsWith
 // StartsWith
 // Trimmed
+// Uri
 // Url
 // Uuid
 
@@ -76,4 +77,11 @@ export function isUrl<T extends number>(value: string): value is string & LowerC
   } catch (_) {
     return false;  
   }
+}
+
+export type Uuid = Tag<'uuid'>;
+
+export function isUuid<T extends number>(value: string): value is string & LowerCase {
+  const regexp = new RegExp("^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$","i");
+  regexp.test(value)
 }
