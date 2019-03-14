@@ -1,4 +1,4 @@
-import { isDigits, isLetters } from '../src/taghiro';
+import { isDigits, isLetters, isUrl } from '../src/taghiro';
 
 test('isDigits returns true for strings of digits', () => {
   const v = '123';
@@ -18,4 +18,12 @@ test('isLetters returns true for strings of letters', () => {
 test('isLetters returns false for strings with a number', () => {
   const v = 'abc1';
   expect(isLetters(v)).toBe(false);
+});
+
+test('isUrl returns true for urls', () => {
+  expect(isUrl('http://www.github.com')).toBe(true);
+});
+
+test('isUrl returns true for incorrect urls', () => {
+  expect(isUrl('abc')).toBe(false);
 });
