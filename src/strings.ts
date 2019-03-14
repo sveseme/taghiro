@@ -9,7 +9,6 @@ import { Tag } from './tag';
 // EndsWith
 // StartsWith
 // Trimmed
-// Uri
 // Url
 // Uuid
 
@@ -66,4 +65,15 @@ export declare class StartsWith<T extends string> {
 
 export function startsWith<T extends string>(value: string, startsWith: T): value is string & StartsWith<T> {
   return value.startsWith(startsWith);
+}
+
+export type Url = Tag<'url'>;
+
+export function isUrl<T extends number>(value: string): value is string & LowerCase {
+  try {
+    new URL(value);
+    return true;
+  } catch (_) {
+    return false;  
+  }
 }
