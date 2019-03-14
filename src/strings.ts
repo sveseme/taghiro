@@ -97,3 +97,14 @@ export function isUuid<T extends number>(value: string): value is string & Uuid 
   const regexp = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', 'i');
   return regexp.test(value);
 }
+
+export type Json = Tag<'json'>;
+
+export function isJson<T extends number>(value: string): value is string & Uuid {
+  try {
+    const result = JSON.parse(value);
+    return !!result && typeof result === 'object';
+  } catch (e) {
+    return false;
+  }
+}
