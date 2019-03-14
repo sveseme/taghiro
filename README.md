@@ -90,10 +90,10 @@ taghiro brings ready to use tag types. The supplied tag types are inspired by th
 - UpperCase
 - EndsWith
 - StartsWith
-- Uri
-- URL
-- UUID
+- Url
+- Uuid
 - Trimmed
+- Json
 
 ## More tag types
 

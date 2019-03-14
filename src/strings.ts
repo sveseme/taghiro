@@ -21,6 +21,13 @@ export function isRegex<T extends string>(value: string, regex: T): value is str
   return regexp.test(value);
 }
 
+export type Accii = Tag<'ascii'>;
+
+export function isAscii<T extends number>(value: string): value is string & Uuid {
+  const regexp = new RegExp('^[\x00-\x7F]+$');
+  return regexp.test(value);
+}
+
 export type Digits = Tag<'digits'>;
 
 export function isDigits(value: string): value is string & Digits {
