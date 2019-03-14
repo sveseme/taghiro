@@ -9,7 +9,7 @@ import { Tag } from './tag';
 export type Empty = Tag<'empty'>;
 
 export function isEmpty<T extends { length: number }>(value: T): value is T & Empty {
-  return value.length == 0;
+  return hasSize(value, 0);
 }
 
 export type NonEmpty = Tag<'non-empty'>;
