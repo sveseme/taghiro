@@ -83,14 +83,94 @@ taghiro brings ready to use tag types. The supplied tag types are inspired by th
 
 ### Strings
 
+- Ascii
+- Regex
 - Digits
 - Letters
 - LettersOrDigits
 - LowerCase
 - UpperCase
+- Trimmed
 - EndsWith
 - StartsWith
-- Uri
-- URL
-- UUID
-- Trimmed
+- Url
+- Uuid
+- Json
+- Base64
+
+## Custom tag types
+
+Tag types can be used to define custom domain concepts. One example is
+id. Here is an example based on string Uuid ids.
+
+```typescript
+import { Tag, isUuid } from 'taghiro';
+
+export type CustomerId = Tag<'customer-id'>;
+
+export function isCustomerId(value: string): value is string & CustomerId {
+  return isUuid(value);
+}
+```
+
+One can define a custom Tag type to define more than one id tag.
+
+```typescript
+import { isUuid } from 'taghiro';
+
+export interface Id<T extends string> {
+  readonly __id: T;
+}
+
+export type CustomerId = Id<'customer'>;
+
+export function isCustomerId(value: string): value is string & CustomerId {
+  return isUuid(value);
+}
+
+export type AccountId = Id<'account'>;
+
+export function isAccountId(value: string): value is string & AccountId {
+  return isUuid(value);
+}
+```
+
+## More tag types
+
+taghiro is easy to integrate with more validation libraries for example [Validator](https://www.npmjs.com/package/validator).
+
+```typescript
+import { isEmail } from 'validator';
+import { Tag } from 'taghiro';
+
+export type Email = Tag<'email'>;
+
+export function isEmail(value: string): value is string & Email {
+  return isEmail(value);
+}
+```
+
+## License (MIT)
+
+```
+Copyright (c) 2019 Stephan Schmidt
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```

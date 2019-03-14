@@ -6,18 +6,6 @@ import { Tag } from './tag';
 // Empty
 // NonEmpty
 
-export type Empty = Tag<'empty'>;
-
-export function isEmpty<T extends { length: number }>(value: T): value is T & Empty {
-  return hasSize(value, 0);
-}
-
-export type NonEmpty = Tag<'non-empty'>;
-
-export function isNotEmpty<T extends { length: number }>(value: T): value is T & Empty {
-  return !isEmpty(value);
-}
-
 export declare class Size<T extends number> {
   private __size: T;
 }
@@ -40,4 +28,16 @@ export declare class MaxSize<T extends number> {
 
 export function hasMaxSize<T extends number, U extends { length: number }>(value: U, maxSize: T): value is U & Size<T> {
   return value.length <= maxSize;
+}
+
+export type Empty = Tag<'empty'>;
+
+export function isEmpty<T extends { length: number }>(value: T): value is T & Empty {
+  return hasSize(value, 0);
+}
+
+export type NonEmpty = Tag<'non-empty'>;
+
+export function isNotEmpty<T extends { length: number }>(value: T): value is T & Empty {
+  return !isEmpty(value);
 }

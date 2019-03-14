@@ -1,4 +1,5 @@
 import { Tag } from './tag';
+import { isModulo, isDivisible } from './numeric';
 
 // Regex
 // Digits
@@ -9,7 +10,6 @@ import { Tag } from './tag';
 // EndsWith
 // StartsWith
 // Trimmed
-// Uri
 // Url
 // Uuid
 
@@ -19,6 +19,13 @@ export declare class Regex<T extends string> {
 
 export function isRegex<T extends string>(value: string, regex: T): value is string & Regex<T> {
   const regexp = new RegExp(regex);
+  return regexp.test(value);
+}
+
+export type Accii = Tag<'ascii'>;
+
+export function isAscii<T extends number>(value: string): value is string & Uuid {
+  const regexp = new RegExp('^[\x00-\x7F]+$');
   return regexp.test(value);
 }
 
@@ -32,6 +39,12 @@ export type Letters = Tag<'letters'>;
 
 export function isLetters(value: string): value is string & Letters {
   return isRegex(value, '^[a-zA-Z]+$');
+}
+
+export type LettersOrDigits = Tag<'letters-or-digits'>;
+
+export function isLetterOrDigits(value: string): value is string & LettersOrDigits {
+  return isRegex(value, '^[\\da-zA-Z]+$');
 }
 
 export type Trimmed = Tag<'trimmed'>;
@@ -66,4 +79,39 @@ export declare class StartsWith<T extends string> {
 
 export function startsWith<T extends string>(value: string, startsWith: T): value is string & StartsWith<T> {
   return value.startsWith(startsWith);
+}
+
+export type Url = Tag<'url'>;
+
+export function isUrl(value: string): value is string & LowerCase {
+  try {
+    new URL(value);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+export type Uuid = Tag<'uuid'>;
+
+export function isUuid(value: string): value is string & Uuid {
+  const regexp = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', 'i');
+  return regexp.test(value);
+}
+
+export type Json = Tag<'json'>;
+
+export function isJson(value: string): value is string & Json {
+  try {
+    const result = JSON.parse(value);
+    return !!result && typeof result === 'object';
+  } catch (e) {
+    return false;
+  }
+}
+
+export type Base64 = Tag<'base64'>;
+
+export function isBase64(value: string): value is string & Base64 {
+  return isDivisible(0, 4) && isRegex(value, '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$');
 }
