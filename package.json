@@ -1,6 +1,6 @@
 {
   "name": "taghiro",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tag types for Typescript",
   "main": "index.js",
   "dependencies": {},
