@@ -40,7 +40,7 @@ if (isNotEmpty(emails) && isNotEmpty(html)) {
 }
 ```
 
-## Different sort sof tag types
+## Different sort of tag types
 
 There are many different use cases for tag types. At least three use case groups for tag types are
 
