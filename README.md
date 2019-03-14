@@ -98,6 +98,43 @@ taghiro brings ready to use tag types. The supplied tag types are inspired by th
 - Json
 - Base64
 
+## Custom tag types
+
+Tag types can be used to define custom domain concepts. One example is
+id. Here is an example based on string Uuid ids.
+
+```typescript
+import { Tag, isUuid } from 'taghiro';
+
+export type CustomerId = Tag<'customer-id'>;
+
+export function isCustomerId(value: string): value is string & CustomerId {
+  return isUuid(value);
+}
+```
+
+One can define a custom Tag type to define more than one id tag.
+
+```typescript
+import { isUuid } from 'taghiro';
+
+export interface Id<T extends string> {
+  readonly __id: T;
+}
+
+export type CustomerId = Id<'customer'>;
+
+export function isCustomerId(value: string): value is string & CustomerId {
+  return isUuid(value);
+}
+
+export type AccountId = Id<'account'>;
+
+export function isAccountId(value: string): value is string & AccountId {
+  return isUuid(value);
+}
+```
+
 ## More tag types
 
 taghiro is easy to integrate with more validation libraries for example [Validator](https://www.npmjs.com/package/validator).
