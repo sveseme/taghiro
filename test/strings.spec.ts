@@ -1,4 +1,4 @@
-import { isDigits, isLetters, isUrl } from '../src/taghiro';
+import { isDigits, isLetters, isUrl } from '../src';
 
 test('isDigits returns true for strings of digits', () => {
   const v = '123';
