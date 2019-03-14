@@ -1,5 +1,6 @@
 import { Tag } from './tag';
 
+// Range
 // IntervalOpen
 // IntervalOpenClosed
 // IntervalClosedOpen
@@ -18,6 +19,68 @@ import { Tag } from './tag';
 // Even
 // Odd
 // NotZero
+
+export declare class IntervalOpen<T extends number, U extends Number> {
+  private __minValue: T;
+  private __maxValue: T;
+}
+
+export function isInOpenInterval<T extends number, U extends number>(
+  value: number,
+  minValue: T,
+  maxValue: U,
+): value is number & IntervalOpen<T, U> {
+  return value > minValue && value < maxValue;
+}
+
+export declare class IntervalClosed<T extends number, U extends Number> {
+  private __minValue: T;
+  private __maxValue: T;
+}
+
+export function isInClosedInterval<T extends number, U extends number>(
+  value: number,
+  minValue: T,
+  maxValue: U,
+): value is number & IntervalOpen<T, U> {
+  return value >= minValue && value <= maxValue;
+}
+
+type Range<T extends number, U extends Number> = IntervalClosed<T, U>;
+
+export function isInRange<T extends number, U extends number>(
+  value: number,
+  minValue: T,
+  maxValue: U,
+): value is number & IntervalOpen<T, U> {
+  return isInClosedInterval(value, minValue, maxValue);
+}
+
+export declare class IntervalOpenClosed<T extends number, U extends Number> {
+  private __minValue: T;
+  private __maxValue: T;
+}
+
+export function isInOpenClosedInterval<T extends number, U extends number>(
+  value: number,
+  minValue: T,
+  maxValue: U,
+): value is number & IntervalOpen<T, U> {
+  return value > minValue && value <= maxValue;
+}
+
+export declare class IntervalClosedOpen<T extends number, U extends Number> {
+  private __minValue: T;
+  private __maxValue: T;
+}
+
+export function isInClosedOpenInterval<T extends number, U extends number>(
+  value: number,
+  minValue: T,
+  maxValue: U,
+): value is number & IntervalOpen<T, U> {
+  return value >= minValue && value < maxValue;
+}
 
 export declare class GreaterEqual<T extends number> {
   private __minValue: T;
