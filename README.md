@@ -100,7 +100,14 @@ taghiro brings ready to use tag types. The supplied tag types are inspired by th
 taghiro is easy to integrate with more validation libraries for example [Validator](https://www.npmjs.com/package/validator).
 
 ```typescript
+import { isEmail } from 'validator';
 import { Tag } from 'taghiro';
+
+export type Email = Tag<'email'>;
+
+export function isEmail(value: string): value is string & Email {
+  return isEmail(value);
+}
 ```
 
 ## License (MIT)
