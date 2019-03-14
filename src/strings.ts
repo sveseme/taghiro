@@ -1,4 +1,5 @@
 import { Tag } from './tag';
+import { isModulo, isDivisible } from './numeric';
 
 // Regex
 // Digits
@@ -107,4 +108,10 @@ export function isJson(value: string): value is string & Json {
   } catch (e) {
     return false;
   }
+}
+
+export type Base64 = Tag<'base64'>;
+
+export function isBase64(value: string): value is string & Base64 {
+  return isDivisible(0, 4) && isRegex(value, '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$');
 }
