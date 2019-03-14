@@ -17,6 +17,7 @@ import { Tag } from './tag';
 // NonDivisable
 // Even
 // Odd
+// NotZero
 
 export declare class GreaterEqual<T extends number> {
   private __minValue: T;
