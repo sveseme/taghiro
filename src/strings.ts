@@ -33,6 +33,12 @@ export function isLetters(value: string): value is string & Letters {
   return isRegex(value, '^[a-zA-Z]+$');
 }
 
+export type LettersOrDigits = Tag<'letters-or-digits'>;
+
+export function isLetterOrDigits(value: string): value is string & LettersOrDigits {
+  return isRegex(value, '^[\\da-zA-Z]+$');
+}
+
 export type Trimmed = Tag<'trimmed'>;
 
 export function isTrimmed<T extends number>(value: string): value is string & Trimmed {
@@ -74,13 +80,13 @@ export function isUrl<T extends number>(value: string): value is string & LowerC
     new URL(value);
     return true;
   } catch (_) {
-    return false;  
+    return false;
   }
 }
 
 export type Uuid = Tag<'uuid'>;
 
-export function isUuid<T extends number>(value: string): value is string & LowerCase {
-  const regexp = new RegExp("^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$","i");
-  regexp.test(value)
+export function isUuid<T extends number>(value: string): value is string & Uuid {
+  const regexp = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$', 'i');
+  return regexp.test(value);
 }
