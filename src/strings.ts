@@ -1,5 +1,6 @@
 import { Tag } from './tag';
 
+// Regex
 // Digits
 // Letters
 // LettersOrDigits
@@ -11,6 +12,27 @@ import { Tag } from './tag';
 // Uri
 // Url
 // Uuid
+
+export declare class Regex<T extends string> {
+  private __regex: T;
+}
+
+export function isRegex<T extends string>(value: string, regex: T): value is string & Regex<T> {
+  const regexp = new RegExp(regex);
+  return regexp.test(value);
+}
+
+export type Digits = Tag<'digits'>;
+
+export function isDigits(value: string): value is string & Digits {
+  return isRegex(value, '^\\d*$');
+}
+
+export type Letters = Tag<'letters'>;
+
+export function isLetters(value: string): value is string & Letters {
+  return isRegex(value, '^[a-zA-Z]+$');
+}
 
 export type Trimmed = Tag<'trimmed'>;
 
