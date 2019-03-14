@@ -83,17 +83,20 @@ taghiro brings ready to use tag types. The supplied tag types are inspired by th
 
 ### Strings
 
+- Ascii
+- Regex
 - Digits
 - Letters
 - LettersOrDigits
 - LowerCase
 - UpperCase
+- Trimmed
 - EndsWith
 - StartsWith
 - Url
 - Uuid
-- Trimmed
 - Json
+- Base64
 
 ## More tag types
 
