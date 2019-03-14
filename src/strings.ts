@@ -9,7 +9,6 @@ import { Tag } from './tag';
 // EndsWith
 // StartsWith
 // Trimmed
-// Uri
 // Url
 // Uuid
 
