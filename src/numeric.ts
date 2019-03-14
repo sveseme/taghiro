@@ -114,3 +114,9 @@ type Even = Tag<'even'>;
 export function isEven(value: number): value is number & Odd {
   return isDivisible(value, 2);
 }
+
+type NotZero = Tag<'not-zero'>;
+
+export function isNotZero(value: number): value is number & NotZero {
+  return value != 0;
+}
