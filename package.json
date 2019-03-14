@@ -17,7 +17,9 @@
     "typescript": "^3.3.3333"
   },
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "test": "jest",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
