@@ -73,7 +73,7 @@ function sendEmails(
 
 For an extension with an `Email` tag see [taghiro-validator](https://github.com/StephanSchmidt/taghiro-validator). For implementing `SafeHtml` we could use [sanitize-html](https://www.npmjs.com/package/sanitize-html).
 
-## Different sort of tag types
+## Different sorts of tag types
 
 There are many different use cases for tag types. At least three use case groups for tag types are
 
