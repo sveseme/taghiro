@@ -189,6 +189,17 @@ For a library that implements taghiro tag types with [Validator](https://www.npm
 
 The introduction of generics prevented ClassCastException, replacing null with Option types prevents NullPointerexceptions and the introduction of tag types prevent IllegalArgumentExceptions.
 
+<table>
+<tr>
+<td>
+<pre lang="typescript">
+function sendEmail(to: string & Email, body: string & SafeHtml) {
+  // send email
+}
+</pre>
+</td>
+</tr>
+
 ## License (MIT)
 
 ```
