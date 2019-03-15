@@ -208,7 +208,8 @@ Tag types
 sendEmail(
   'stephan.schmidt@gmail.com', 
   'Important'
-')
+)
+// error handling
 </pre>
 </td>
 <td>
