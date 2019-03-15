@@ -9,6 +9,8 @@ import {
   isUpperCase,
   isLowerCase,
   isUrl,
+  isJson,
+  isBase64,
 } from '../src';
 
 test('isDigits returns true for strings of digits', () => {
@@ -93,6 +95,14 @@ test('isUrl returns true for urls', () => {
   expect(isUrl('http://www.github.com')).toBe(true);
 });
 
-test('isUrl returns true for incorrect urls', () => {
+test('isUrl returns false for incorrect urls', () => {
   expect(isUrl('abc')).toBe(false);
+});
+
+test('isJson returns true for {"a":"b"}', () => {
+  expect(isJson('{"a":"b"}')).toBe(true);
+});
+
+test('isJson returns false for "abc" ', () => {
+  expect(isJson('abc')).toBe(false);
 });
