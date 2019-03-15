@@ -209,7 +209,8 @@ sendEmail(
   'stephan.schmidt@gmail.com', 
   'Important'
 )
-// error handling
+// 1. user/validation error handling
+// 2. IO mail error handling
 </pre>
 </td>
 <td>
@@ -219,6 +220,9 @@ const body = 'Important';
 
 if (isEmail(email) && isSafeHtml(body)) {
 sendEmail(email, body);
+// IO mail error handling
+} else {
+// show user error
 }
 
 </pre>
