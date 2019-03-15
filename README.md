@@ -193,11 +193,47 @@ The introduction of generics prevented ClassCastException, replacing null with O
 <tr>
 <td>
 <pre lang="typescript">
+sendEmail(
+  'stephan.schmidt@gmail.com', 
+  '<b>Important</b>
+');
+</pre>
+</td>
+<td>
+<pre lang="typescript">
+const email = 'stephan.schmidt@gmail.com';
+const body = '<b>Important</b>';
+
+if (isEmail(email) && isSafeHtml(body)) {
+sendEmail(email, body);
+}
+
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>
+<pre lang="typescript">
+function sendEmail(to: string, body: string) {
+  if (isEmail(to), isHtml(body)) {
+    // send email
+  } else {
+    // what to do here?
+    // throw Exception?
+    // return error code?
+  }
+}
+</pre>
+</td>
+<td>
+<pre lang="typescript">
 function sendEmail(to: string & Email, body: string & SafeHtml) {
   // send email
 }
 </pre>
 </td>
+
 </tr>
 </table>
 
