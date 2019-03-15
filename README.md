@@ -4,6 +4,8 @@
 
 **ALPHA - play don't use**
 
+[![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro)
+
 taghiro is a library for tag types in Typescript. Tag types are types with which you can tag other types. taghiro implements them as union types in Typescript.
 
 ## Install
