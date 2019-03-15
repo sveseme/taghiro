@@ -6,7 +6,9 @@
 
 [![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro)
 
-taghiro is a library for tag types in Typescript. Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types. taghiro implements them as union types in Typescript. For an introduction on tag types see [here](http://codemonkeyism.com/never-never-never-use-string-in-java-7-years-later/).
+taghiro is a library for tag types in Typescript. Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types. For an introduction on tag types see [here](http://codemonkeyism.com/never-never-never-use-string-in-java-7-years-later/).
+
+taghiro implements them as union types in Typescript.
 
 ## Install
 
@@ -159,6 +161,10 @@ export function isEmail(value: string): value is string & Email {
   return isEmail(value);
 }
 ```
+
+## Tag types and bug prevention
+
+The introduction of generics prevented ClassCastException, replacing null with Option types prevents NullPointerexceptions and the introduction of tag types prevent IllegalArgumentExceptions.
 
 ## License (MIT)
 
