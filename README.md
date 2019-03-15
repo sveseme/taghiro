@@ -10,6 +10,12 @@ taghiro is a library for tag types in Typescript. Tag types are types with which
 npm install taghiro
 ```
 
+## Run tests
+
+```bash
+npm test
+```
+
 ## Usage
 
 Lets look at an example where we send emails
