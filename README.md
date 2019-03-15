@@ -199,6 +199,7 @@ function sendEmail(to: string & Email, body: string & SafeHtml) {
 </pre>
 </td>
 </tr>
+</table>
 
 ## License (MIT)
 
