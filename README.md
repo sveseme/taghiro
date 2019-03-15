@@ -2,6 +2,8 @@
 
 **Tag types for Typescript**
 
+**ALPHA - play don't use**
+
 taghiro is a library for tag types in Typescript. Tag types are types with which you can tag other types. taghiro implements them as union types in Typescript.
 
 ## Install
