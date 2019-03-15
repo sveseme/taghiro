@@ -183,6 +183,8 @@ export function isEmail(value: string): value is string & Email {
 }
 ```
 
+For a library that implements taghiro tag types with [Validator](https://www.npmjs.com/package/validator) see [taghiro-validator](https://github.com/StephanSchmidt/taghiro-validator).
+
 ## Tag types and bug prevention
 
 The introduction of generics prevented ClassCastException, replacing null with Option types prevents NullPointerexceptions and the introduction of tag types prevent IllegalArgumentExceptions.
