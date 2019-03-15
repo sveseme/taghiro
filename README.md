@@ -191,6 +191,15 @@ The introduction of generics prevented ClassCastException, replacing null with O
 
 <table>
 <tr>
+<td></td>
+<td>
+Method validation
+</td>
+<td>
+Tag types
+</td>
+</tr>
+<tr>
 <td>
 <b>Call site</b>
 </td>
@@ -198,14 +207,14 @@ The introduction of generics prevented ClassCastException, replacing null with O
 <pre lang="typescript">
 sendEmail(
   'stephan.schmidt@gmail.com', 
-  '<b>Important</b>'
-');
+  'Important'
+')
 </pre>
 </td>
 <td>
 <pre lang="typescript">
 const email = 'stephan.schmidt@gmail.com';
-const body = '<b>Important</b>';
+const body = 'Important';
 
 if (isEmail(email) && isSafeHtml(body)) {
 sendEmail(email, body);
@@ -214,7 +223,6 @@ sendEmail(email, body);
 </pre>
 </td>
 </tr>
-
 <tr>
 <td>
 <b>Method site</b>
@@ -242,7 +250,6 @@ function sendEmail(
 }
 </pre>
 </td>
-
 </tr>
 </table>
 
