@@ -92,6 +92,8 @@ taghiro brings ready to use tag types. The supplied tag types are inspired by th
 - MaxSize
 - Empty
 - NonEmpty
+- Sorted
+- Unsorted
 
 ### Numeric
 
