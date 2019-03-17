@@ -5,6 +5,30 @@ import { Tag } from './tag';
 // MaxSize
 // Empty
 // NonEmpty
+// Sorted
+// Unsorted
+
+export type Sorted = Tag<'sorted'>;
+
+export type Unsorted = Tag<'unsorted'>;
+
+export function isSorted<T extends number>(a: Array<T>): a is Array<T> & Sorted {
+  for (var i = 0; i < a.length - 1; i++) {
+    if (a[i] > a[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function isUnsorted<T extends number>(a: Array<T>): a is Array<T> & Unsorted {
+  for (var i = 0; i < a.length - 1; i++) {
+    if (a[i] > a[i + 1]) {
+      return true;
+    }
+  }
+  return false;
+}
 
 export declare class Size<T extends number> {
   private __size: T;
