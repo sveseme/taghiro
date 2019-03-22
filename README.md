@@ -2,7 +2,7 @@
 
 **Tag types for Typescript**
 
-[![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro) <img src="https://img.shields.io/npm/v/taghiro.svg"> <img src="https://img.shields.io/npm/dm/taghiro.svg">
+[![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro) <a href="https://www.npmjs.com/package/taghiro"><img src="https://img.shields.io/npm/v/taghiro.svg"></a> <a href="https://www.npmjs.com/package/taghiro"><img src="https://img.shields.io/npm/dm/taghiro.svg"></a>
 
 taghiro is a library for tag types in [Typescript](https://www.typescriptlang.org/). Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types.
 
