@@ -4,7 +4,7 @@
 
 [![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro) <img src="https://img.shields.io/npm/v/taghiro.svg"> <img src="https://img.shields.io/npm/dm/taghiro.svg">
 
-taghiro is a library for tag types in Typescript. Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types.
+taghiro is a library for tag types in [Typescript](https://www.typescriptlang.org/). Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types.
 
 taghiro implements them as union types in Typescript. For example `NotZero` is a tag type preventing `b` to be `0`.
 
