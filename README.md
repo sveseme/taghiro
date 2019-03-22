@@ -2,8 +2,6 @@
 
 **Tag types for Typescript**
 
-**ALPHA - play don't use**
-
 [![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro)
 
 taghiro is a library for tag types in Typescript. Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types.
