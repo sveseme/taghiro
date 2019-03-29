@@ -42,7 +42,10 @@ export declare class MinSize<T extends number> {
   private __minSize: T;
 }
 
-export function hasMinSize<T extends number, U extends { length: number }>(value: U, minSize: T): value is U & Size<T> {
+export function hasMinSize<T extends number, U extends { length: number }>(
+  value: U,
+  minSize: T,
+): value is U & MinSize<T> {
   return value.length >= minSize;
 }
 
