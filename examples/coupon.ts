@@ -17,14 +17,14 @@ function handle1(param: string) {
     try {
       buy1(n);
     } catch (e) {
-      // Hanlde this is not a percentage
+      // Handle this is not a percentage
     }
   }
 }
 
 function buy1(percentage: number) {
   // error
-  if (!Number.isInteger || percentage < 0 || percentage > 100) {
+  if (!Number.isInteger(percentage) || percentage < 0 || percentage > 100) {
     throw 'Not an valid percentege ' + percentage;
   }
 
@@ -55,8 +55,8 @@ function handle2(param: number) {
 
 function buy2(percentage: number): { coupon?: string; error?: string } {
   // error
-  if (!Number.isInteger || percentage < 0 || percentage > 100) {
-    return { error: 'Not an valid percentege ' + percentage };
+  if (!Number.isInteger(percentage) || percentage < 0 || percentage > 100) {
+    return { error: 'Not an valid percentage ' + percentage };
   }
 
   if (percentage > 80) {
