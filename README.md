@@ -2,7 +2,7 @@
 
 **Tag types for Typescript**
 
-[![CircleCI](https://circleci.com/gh/StephanSchmidt/taghiro.svg?style=svg)](https://circleci.com/gh/StephanSchmidt/taghiro) <a href="https://www.npmjs.com/package/taghiro"><img src="https://img.shields.io/npm/v/taghiro.svg"></a> <a href="https://www.npmjs.com/package/taghiro"><img src="https://img.shields.io/npm/dm/taghiro.svg"></a>
+[![CircleCI](https://circleci.com/gh/sveseme/taghiro.svg?style=svg)](https://circleci.com/gh/sveseme/taghiro) <a href="https://www.npmjs.com/package/taghiro"><img src="https://img.shields.io/npm/v/taghiro.svg"></a> <a href="https://www.npmjs.com/package/taghiro"><img src="https://img.shields.io/npm/dm/taghiro.svg"></a>
 
 taghiro is a library for tag types in [Typescript](https://www.typescriptlang.org/). Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types.
 
@@ -69,7 +69,7 @@ function sendEmails(
 }
 ```
 
-For an extension with an `Email` tag see [taghiro-validator](https://github.com/StephanSchmidt/taghiro-validator). For implementing `SafeHtml` we could use [sanitize-html](https://www.npmjs.com/package/sanitize-html).
+For an extension with an `Email` tag see [taghiro-validator](https://github.com/sveseme/taghiro-validator). For implementing `SafeHtml` we could use [sanitize-html](https://www.npmjs.com/package/sanitize-html).
 
 ## Different sorts of tag types
 
@@ -183,7 +183,7 @@ export function isEmail(value: string): value is string & Email {
 }
 ```
 
-For a library that implements taghiro tag types with [Validator](https://www.npmjs.com/package/validator) see [taghiro-validator](https://github.com/StephanSchmidt/taghiro-validator).
+For a library that implements taghiro tag types with [Validator](https://www.npmjs.com/package/validator) see [taghiro-validator](https://github.com/sveseme/taghiro-validator).
 
 ## Tag types and bug prevention
 
