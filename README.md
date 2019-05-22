@@ -6,7 +6,7 @@
 
 taghiro is a library for tag types in [Typescript](https://www.typescriptlang.org/). Our mission is to prevent bugs and make code more readable to developers. Tag types are types with which you can tag other types.
 
-taghiro implements them as union types in Typescript. For example `NotZero` is a tag type preventing `b` to be `0`.
+taghiro implements them as intersection types in Typescript. For example `NotZero` is a tag type preventing `b` to be `0`.
 
 ```typescript
 function divide(a:number, b:number & NotZero) {

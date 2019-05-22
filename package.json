@@ -1,6 +1,6 @@
 {
   "name": "taghiro",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Tag types for Typescript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,7 +15,7 @@
     "jest": "^24.5.0",
     "prettier": "^1.16.4",
     "ts-jest": "^24.0.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "build": "tsc",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StephanSchmidt/taghiro.git"
+    "url": "git+https://github.com/sveseme/taghiro.git"
   },
   "keywords": [
     "tag",
@@ -33,7 +33,7 @@
   "author": "Stephan J. Schmidt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/StephanSchmidt/taghiro/issues"
+    "url": "https://github.com/sveseme/taghiro/issues"
   },
-  "homepage": "https://github.com/StephanSchmidt/taghiro#readme"
+  "homepage": "https://github.com/sveseme/taghiro#readme"
 }

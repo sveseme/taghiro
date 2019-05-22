@@ -65,6 +65,6 @@ export function isEmpty<T extends { length: number }>(value: T): value is T & Em
 
 export type NonEmpty = Tag<'non-empty'>;
 
-export function isNotEmpty<T extends { length: number }>(value: T): value is T & Empty {
+export function isNotEmpty<T extends { length: number }>(value: T): value is T & NonEmpty {
   return !isEmpty(value);
 }
