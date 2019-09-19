@@ -1,10 +1,11 @@
 {
   "name": "taghiro",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Tag types for Typescript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
