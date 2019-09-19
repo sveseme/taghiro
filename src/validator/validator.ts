@@ -14,6 +14,14 @@ function validate<T, U extends T>(v: T, fn: (v: T) => v is U): Result<U, ErrorMe
   }
 }
 
+function vDefined<T>(value: T): Result<T, ErrorMessage> {
+  if (value !== undefined) {
+    return new Success(value);
+  } else {
+    return new ValidationFailure('Could not validated');
+  }
+}
+
 // Replace with currying
 // https://medium.com/@hernanrajchert/creating-typings-for-curry-using-ts-3-x-956da2780bbf
 
