@@ -13,14 +13,13 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   },
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\""
+    "test:ci": "jest",
   },
   "repository": {
     "type": "git",
