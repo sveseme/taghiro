@@ -1,14 +1,26 @@
-export { Success, Failure, Many, Many as Failures, Result, isOneFailure, isSuccess, handle };
+export {
+  Success,
+  Failure,
+  Many,
+  Many as Failures,
+  Result,
+  isOneFailure,
+  isSuccess,
+  handle,
+};
 
 function isSuccess<T, E>(arg: Result<T, E>): arg is Success<T> {
-  return arg.isSuccess() == true;
+  return arg.isSuccess();
 }
 
 function isOneFailure<T, E>(arg: Result<T, E>): arg is Failure<E> {
-  return !arg.isSuccess() && arg.hasMany() == false;
+  return !arg.isSuccess() && arg.hasMany() === false;
 }
 
-async function handle<T, E>(v: Promise<T | undefined>, f: () => Failure<E>): Promise<Result<T, E>> {
+async function handle<T, E>(
+  v: Promise<T | undefined>,
+  f: () => Failure<E>,
+): Promise<Result<T, E>> {
   const value = await v;
   if (value) {
     return new Success(value);
@@ -22,7 +34,7 @@ export function success<T, E>(value: T): Result<T, E> {
 }
 
 class Success<T> {
-  constructor(public readonly value: T) {}
+  constructor(readonly value: T) {}
 
   isSuccess(): boolean {
     return true;
@@ -33,7 +45,7 @@ class Success<T> {
 }
 
 class Failure<E> {
-  constructor(public readonly error: E) {}
+  constructor(readonly error: E) {}
 
   hasMany(): boolean {
     return false;
@@ -49,7 +61,11 @@ class Failure<E> {
 }
 
 class Many<F> {
-  constructor(readonly failures: Array<F>) {}
+  static of<F>(f: F): Many<F> {
+    return new Many([f]);
+  }
+
+  constructor(readonly failures: F[]) {}
 
   isSuccess(): boolean {
     return false;
@@ -57,10 +73,6 @@ class Many<F> {
 
   hasMany(): boolean {
     return true;
-  }
-
-  static of<F>(f: F): Many<F> {
-    return new Many([f]);
   }
 
   toMany(): Many<F> {

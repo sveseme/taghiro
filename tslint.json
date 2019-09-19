@@ -1,0 +1,22 @@
+
+{
+  "extends": ["tslint:latest","tslint-sonarts"],
+ 	"rules": {
+	"variable-name": {
+  			"options": [
+    				"ban-keywords"
+  			]
+	},
+   "max-classes-per-file": false,
+        "no-duplicate-string": false,
+        "parameters-max-number": false,
+    "semicolon": [true, "always", "strict-bound-class-methods"],
+    "no-submodule-imports": [true, "typeorm/util/StringUtils"],
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "object-literal-sort-keys": false,
+    "member-access": [true, "no-public"],
+    "ordered-imports": false,
+    "interface-name": [true, "never-prefix"],
+    "no-implicit-dependencies": [true, "dev"]
+  }
+}
