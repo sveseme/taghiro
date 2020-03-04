@@ -130,7 +130,7 @@ type Positive = Tag<"positive">;
 
 export function positive<T extends number>(
   value: number,
-): value is number & LessEqual<T> {
+): value is number & GreaterEqual<T> {
   return value > 0;
 }
 
@@ -154,7 +154,7 @@ type NonNegative = Tag<"non-negative">;
 
 export function nonNegative<T extends number>(
   value: number,
-): value is number & LessEqual<T> {
+): value is number & GreaterEqual<T> {
   return !positive(value);
 }
 
