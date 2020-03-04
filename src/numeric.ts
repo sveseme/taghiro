@@ -126,6 +126,7 @@ export function lessThan<T extends number>(
   return value < maxValue;
 }
 
+// values > 0
 type Positive = Tag<"positive">;
 
 export function positive<T extends number>(
@@ -134,6 +135,7 @@ export function positive<T extends number>(
   return value > 0;
 }
 
+// values < 0
 type Negative = Tag<"negative">;
 
 export function negative<T extends number>(
@@ -142,20 +144,22 @@ export function negative<T extends number>(
   return value < 0;
 }
 
+// values <= 0
 type NonPositive = Tag<"non-positive">;
 
 export function nonPositive<T extends number>(
   value: number,
 ): value is number & LessEqual<T> {
-  return !negative(value);
+  return !positive(value);
 }
 
+// values >=0
 type NonNegative = Tag<"non-negative">;
 
 export function nonNegative<T extends number>(
   value: number,
 ): value is number & GreaterEqual<T> {
-  return !positive(value);
+  return !negative(value);
 }
 
 export declare class Modulo<T extends number, U extends number> {
