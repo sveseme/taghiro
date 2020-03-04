@@ -1,4 +1,4 @@
-import { Result, Failure } from './results';
+import { Result, Failure } from "./results";
 export { ErrorMessage, ValidationFailure, validate, withGood };
 declare type ErrorMessage = string;
 declare class ValidationFailure extends Failure<ErrorMessage> {

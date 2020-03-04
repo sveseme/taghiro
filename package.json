@@ -20,7 +20,8 @@
     "build": "tsc",
     "test": "jest",
     "test:ci": "jest",
-    "lint": "tslint -p tsconfig.json -c tslint.json"
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "pre-push": "npm-run-all build lint test"
   },
   "repository": {
     "type": "git",

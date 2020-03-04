@@ -1,4 +1,4 @@
-import { Tag } from './tag';
+import { Tag } from "./tag";
 export declare class IntervalOpen<T extends number, U extends number> {
     private __minValue;
     private __maxValue;
@@ -53,9 +53,9 @@ export declare class NotDivisible<T extends number> {
     private __divisor;
 }
 export declare function isNotDivisible<T extends number>(value: number, d: T): value is number & NotDivisible<T>;
-declare type Odd = Tag<'odd'>;
+declare type Odd = Tag<"odd">;
 export declare function isOdd(value: number): value is number & Odd;
 export declare function isEven(value: number): value is number & Odd;
-declare type NotZero = Tag<'not-zero'>;
+declare type NotZero = Tag<"not-zero">;
 export declare function isNotZero(value: number): value is number & NotZero;
 export {};
