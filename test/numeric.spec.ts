@@ -16,6 +16,9 @@ import {
   lessThan,
   isInOpenInterval,
   isInClosedInterval,
+  isInRange,
+  isInOpenClosedInterval,
+  isInClosedOpenInterval,
 } from "../src";
 
 test("isInOpenInterval return true for a value inside the interval", () => {
@@ -52,6 +55,54 @@ test("isInClosedInterval return true for a value at the upper end of the interva
 
 test("isInClosedInterval return false for a value inside the interval with a lower negative bound", () => {
   expect(isInClosedInterval(0, -2, 7)).toBe(true);
+});
+
+test("isInRange return true for a value inside the interval", () => {
+  expect(isInRange(6, 2, 7)).toBe(true);
+});
+
+test("isInRange return true for a value at the lower end of the interval", () => {
+  expect(isInRange(2, 2, 7)).toBe(true);
+});
+
+test("isInRange return true for a value at the upper end of the interval", () => {
+  expect(isInRange(7, 2, 7)).toBe(true);
+});
+
+test("isInRange return false for a value inside the interval with a lower negative bound", () => {
+  expect(isInRange(0, -2, 7)).toBe(true);
+});
+
+test("isInOpenClosedInterval returns true for a value in the interval", () => {
+  expect(isInOpenClosedInterval(5, 1, 9)).toBe(true);
+});
+
+test("isInOpenClosedInterval returns false for a value outside the interval", () => {
+  expect(isInOpenClosedInterval(14, 1, 9)).toBe(false);
+});
+
+test("isInOpenClosedInterval returns false for a value at lower end of the interval", () => {
+  expect(isInOpenClosedInterval(1, 1, 9)).toBe(false);
+});
+
+test("isInOpenClosedInterval returns true for a value at upper end of the interval", () => {
+  expect(isInOpenClosedInterval(9, 1, 9)).toBe(true);
+});
+
+test("isInClosedOpenInteral returns true for value inside the interval", () => {
+  expect(isInClosedOpenInterval(5, 4, 100)).toBe(true);
+});
+
+test("isInClosedOpenInteral returns false for value outside the interval", () => {
+  expect(isInClosedOpenInterval(1000, 4, 100)).toBe(false);
+});
+
+test("isInClosedOpenInteral returns true for value at lower end of the interval", () => {
+  expect(isInClosedOpenInterval(4, 4, 100)).toBe(true);
+});
+
+test("isInClosedOpenInteral returns false for value at upper end of the interval", () => {
+  expect(isInClosedOpenInterval(100, 4, 100)).toBe(false);
 });
 
 test("lessEqualThan returns true for equal values", () => {

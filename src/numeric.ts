@@ -52,7 +52,7 @@ export function isInRange<T extends number, U extends number>(
   value: number,
   minValue: T,
   maxValue: U,
-): value is number & IntervalClosed<T, U> {
+): value is number & Range<T, U> {
   return isInClosedInterval(value, minValue, maxValue);
 }
 
