@@ -42,7 +42,7 @@ export function isInClosedInterval<T extends number, U extends number>(
   value: number,
   minValue: T,
   maxValue: U,
-): value is number & IntervalOpen<T, U> {
+): value is number & IntervalClosed<T, U> {
   return value >= minValue && value <= maxValue;
 }
 
@@ -52,7 +52,7 @@ export function isInRange<T extends number, U extends number>(
   value: number,
   minValue: T,
   maxValue: U,
-): value is number & IntervalOpen<T, U> {
+): value is number & IntervalClosed<T, U> {
   return isInClosedInterval(value, minValue, maxValue);
 }
 
@@ -65,7 +65,7 @@ export function isInOpenClosedInterval<T extends number, U extends number>(
   value: number,
   minValue: T,
   maxValue: U,
-): value is number & IntervalOpen<T, U> {
+): value is number & IntervalOpenClosed<T, U> {
   return value > minValue && value <= maxValue;
 }
 
@@ -78,7 +78,7 @@ export function isInClosedOpenInterval<T extends number, U extends number>(
   value: number,
   minValue: T,
   maxValue: U,
-): value is number & IntervalOpen<T, U> {
+): value is number & IntervalClosedOpen<T, U> {
   return value >= minValue && value < maxValue;
 }
 
@@ -100,7 +100,7 @@ export declare class Greater<T extends number> {
 export function greaterThan<T extends number>(
   value: number,
   minValue: T,
-): value is number & GreaterEqual<T> {
+): value is number & Greater<T> {
   return value > minValue;
 }
 
@@ -131,7 +131,7 @@ export type Positive = Tag<"positive">;
 
 export function positive<T extends number>(
   value: number,
-): value is number & GreaterEqual<0> & Positive {
+): value is number & Greater<0> & Positive {
   return value > 0;
 }
 
@@ -140,7 +140,7 @@ type Negative = Tag<"negative">;
 
 export function negative<T extends number>(
   value: number,
-): value is number & LessEqual<T> & Negative {
+): value is number & Less<0> & Negative {
   return value < 0;
 }
 
@@ -149,7 +149,7 @@ type NonPositive = Tag<"non-positive">;
 
 export function nonPositive<T extends number>(
   value: number,
-): value is number & LessEqual<T> {
+): value is number & NonPositive & LessEqual<0> {
   return !positive(value);
 }
 
@@ -158,7 +158,7 @@ type NonNegative = Tag<"non-negative">;
 
 export function nonNegative<T extends number>(
   value: number,
-): value is number & GreaterEqual<T> {
+): value is number & NonNegative & GreaterEqual<0> {
   return !negative(value);
 }
 
