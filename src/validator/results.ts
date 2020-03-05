@@ -56,7 +56,7 @@ class Failure<E> {
   }
 
   toMany(): Many<Failure<E>> {
-    return new Many([this]);
+    return Many.of(this);
   }
 }
 
