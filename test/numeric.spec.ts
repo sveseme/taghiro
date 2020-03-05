@@ -12,7 +12,47 @@ import {
   negative,
   greaterEqualThan,
   LessEqual,
+  greaterThan,
+  lessThan,
+  isInOpenInterval,
+  isInClosedInterval,
 } from "../src";
+
+test("isInOpenInterval return true for a value inside the interval", () => {
+  expect(isInOpenInterval(6, 2, 7)).toBe(true);
+});
+
+test("isInOpenInterval return false for a value outside the interval", () => {
+  expect(isInOpenInterval(9, 2, 7)).toBe(false);
+});
+
+test("isInOpenInterval return false for a value at the ends of the interval", () => {
+  expect(isInOpenInterval(2, 2, 7)).toBe(false);
+});
+
+test("isInOpenInterval return false for a value at the ends of the interval", () => {
+  expect(isInOpenInterval(7, 2, 7)).toBe(false);
+});
+
+test("isInOpenInterval return false for a value inside the interval with a lower negative bound", () => {
+  expect(isInOpenInterval(0, -2, 7)).toBe(true);
+});
+
+test("isInClosedInterval return true for a value inside the interval", () => {
+  expect(isInClosedInterval(6, 2, 7)).toBe(true);
+});
+
+test("isInClosedInterval return true for a value at the lower end of the interval", () => {
+  expect(isInClosedInterval(2, 2, 7)).toBe(true);
+});
+
+test("isInClosedInterval return true for a value at the upper end of the interval", () => {
+  expect(isInClosedInterval(7, 2, 7)).toBe(true);
+});
+
+test("isInClosedInterval return false for a value inside the interval with a lower negative bound", () => {
+  expect(isInClosedInterval(0, -2, 7)).toBe(true);
+});
 
 test("lessEqualThan returns true for equal values", () => {
   const v = 3;
@@ -29,8 +69,36 @@ test("lessEqualThan returns false if greater value", () => {
   expect(lessEqualThan(v, 3)).toBe(false);
 });
 
+test("lessThan returns false for equal values", () => {
+  expect(lessThan(3, 3)).toBe(false);
+});
+
+test("lessThan returns false for greater value", () => {
+  expect(lessThan(4, 3)).toBe(false);
+});
+
+test("lessThan returns true for smaller value", () => {
+  expect(lessThan(2, 7)).toBe(true);
+});
+
+test("lessThan returns true for smaller value and negative numbers", () => {
+  expect(lessThan(-7, -2)).toBe(true);
+});
+
+test("greaterThan return false for equal values", () => {
+  expect(greaterThan(4, 4)).toBe(false);
+});
+
+test("greaterThan return false for smaller value", () => {
+  expect(greaterThan(4, 5)).toBe(false);
+});
+
+test("greaterThan return true for larger value", () => {
+  expect(greaterThan(5, 4)).toBe(true);
+});
+
 test("greaterEqualThan return true for equal values", () => {
-  expect(greaterEqualThan(4, 3)).toBe(true);
+  expect(greaterEqualThan(4, 4)).toBe(true);
 });
 
 test("greaterEqualThan return false for less value", () => {

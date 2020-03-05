@@ -36,10 +36,12 @@ export declare class Less<T extends number> {
     private __maxValue;
 }
 export declare function lessThan<T extends number>(value: number, maxValue: T): value is number & LessEqual<T>;
-export declare function positive<T extends number>(value: number): value is number & LessEqual<T>;
-export declare function negative<T extends number>(value: number): value is number & LessEqual<T>;
+export declare type Positive = Tag<"positive">;
+export declare function positive<T extends number>(value: number): value is number & GreaterEqual<0> & Positive;
+declare type Negative = Tag<"negative">;
+export declare function negative<T extends number>(value: number): value is number & LessEqual<T> & Negative;
 export declare function nonPositive<T extends number>(value: number): value is number & LessEqual<T>;
-export declare function nonNegative<T extends number>(value: number): value is number & LessEqual<T>;
+export declare function nonNegative<T extends number>(value: number): value is number & GreaterEqual<T>;
 export declare class Modulo<T extends number, U extends number> {
     private __m1;
     private __m2;

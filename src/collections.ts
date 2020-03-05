@@ -49,6 +49,9 @@ export function hasMinSize<T extends number, U extends { length: number }>(
   value: U,
   minSize: T,
 ): value is U & MinSize<T> {
+  if (minSize < 0) {
+    return false;
+  }
   return value.length >= minSize;
 }
 
@@ -60,6 +63,9 @@ export function hasMaxSize<T extends number, U extends { length: number }>(
   value: U,
   maxSize: T,
 ): value is U & Size<T> {
+  if (maxSize < 0) {
+    return false;
+  }
   return value.length <= maxSize;
 }
 
