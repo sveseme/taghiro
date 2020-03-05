@@ -14,6 +14,10 @@ function divide(a:number, b:number & NotZero) {
 
 For an introduction on tag types see [here](http://codemonkeyism.com/never-never-never-use-string-in-java-7-years-later/).
 
+## Development
+
+Development happens at https://twitch.tv/kingofcoders
+
 ## Install
 
 ```bash
@@ -49,7 +53,7 @@ function sendEmails(to:Array<string> & NonEmpty, html:string & NonEmpty) {
 Now the caller needs to ensure that the paramater satisfy the tag types. taghiro implements this with Typescript type guards.
 
 ```typescript
-import { NonEmpty, isNotEmpty } from 'taghiro';
+import { NonEmpty, isNotEmpty } from "taghiro";
 
 if (isNotEmpty(emails) && isNotEmpty(html)) {
   sendEmails(emails, html);
@@ -135,9 +139,9 @@ Tag types can be used to define custom domain concepts. One example is
 id. Here is an example based on string Uuid ids.
 
 ```typescript
-import { Tag, isUuid } from 'taghiro';
+import { Tag, isUuid } from "taghiro";
 
-export type CustomerId = Tag<'customer-id'>;
+export type CustomerId = Tag<"customer-id">;
 
 export function isCustomerId(value: string): value is string & CustomerId {
   return isUuid(value);
@@ -147,19 +151,19 @@ export function isCustomerId(value: string): value is string & CustomerId {
 One can define a custom Tag type to define more than one id tag.
 
 ```typescript
-import { isUuid } from 'taghiro';
+import { isUuid } from "taghiro";
 
 export interface Id<T extends string> {
   readonly __id: T;
 }
 
-export type CustomerId = Id<'customer'>;
+export type CustomerId = Id<"customer">;
 
 export function isCustomerId(value: string): value is string & CustomerId {
   return isUuid(value);
 }
 
-export type AccountId = Id<'account'>;
+export type AccountId = Id<"account">;
 
 export function isAccountId(value: string): value is string & AccountId {
   return isUuid(value);
@@ -171,10 +175,10 @@ export function isAccountId(value: string): value is string & AccountId {
 taghiro is easy to integrate with more validation libraries for example [Validator](https://www.npmjs.com/package/validator).
 
 ```typescript
-import { isEmail } from 'validator';
-import { Tag } from 'taghiro';
+import { isEmail } from "validator";
+import { Tag } from "taghiro";
 
-export type Email = Tag<'email'>;
+export type Email = Tag<"email">;
 
 export function isEmail(value: string): value is string & Email {
   return isEmail(value);

@@ -127,11 +127,11 @@ export function lessThan<T extends number>(
 }
 
 // values > 0
-type Positive = Tag<"positive">;
+export type Positive = Tag<"positive">;
 
 export function positive<T extends number>(
   value: number,
-): value is number & GreaterEqual<T> & Positive {
+): value is number & GreaterEqual<0> & Positive {
   return value > 0;
 }
 
