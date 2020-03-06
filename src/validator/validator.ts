@@ -21,12 +21,12 @@ function vDefined<T>(value: T): Result<T, ErrorMessage> {
   if (value !== undefined) {
     return new Success(value);
   } else {
-    return new ValidationFailure("Could not validated");
+    return new ValidationFailure("Value is undefined.");
   }
 }
 
-// Replace with currying
-// https://medium.com/@hernanrajchert/creating-typings-for-curry-using-ts-3-x-956da2780bbf
+// Replace with currying, somehow ;-)
+// https://www.freecodecamp.org/news/typescript-curry-ramda-types-f747e99744ab/
 
 function withGood<A, E, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
   fn: (
@@ -63,9 +63,13 @@ function withGood<A, E, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
   const args = [v1, v2, v3, v4, v5, v6, v7, v8, v9].filter(x => {
     return x !== undefined;
   });
-  const allSuccess = (args.length = args.filter(
-    x => x !== undefined && x.isSuccess,
-  ).length);
+
+  console.log(args);
+  console.log(args.filter(x => x!.isSuccess()));
+
+  const allSuccess = args.length == args.filter(x => x!.isSuccess()).length;
+
+  console.log(allSuccess);
 
   if (allSuccess) {
     return new Success(
@@ -82,6 +86,6 @@ function withGood<A, E, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
       ),
     );
   } else {
-    return new Many([v1 as Failure<E>, v2 as Failure<E>]);
+    return new Many(args.filter(x => !x!.isSuccess()) as Failure<E>[]);
   }
 }
