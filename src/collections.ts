@@ -56,13 +56,13 @@ export function hasMinSize<T extends number, U extends { length: number }>(
 }
 
 export declare class MaxSize<T extends number> {
-  private __minSize: T;
+  private __maxSize: T;
 }
 
 export function hasMaxSize<T extends number, U extends { length: number }>(
   value: U,
   maxSize: T,
-): value is U & Size<T> {
+): value is U & MaxSize<T> {
   if (maxSize < 0) {
     return false;
   }
