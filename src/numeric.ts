@@ -205,7 +205,7 @@ export function isOdd(value: number): value is number & Odd {
 
 type Even = Tag<"even">;
 
-export function isEven(value: number): value is number & Odd {
+export function isEven(value: number): value is number & Even {
   return isDivisible(value, 2);
 }
 
